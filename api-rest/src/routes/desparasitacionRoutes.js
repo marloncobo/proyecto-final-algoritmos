@@ -6,6 +6,15 @@ router.post('/', async (req, res) => {
   const { nombre, email, telefono, mascota, tipo, mensaje, fecha_desparasitacion } = req.body;
 
   try {
+    const [existe] = await pool.query(
+      'SELECT * FROM citas WHERE fecha_cita = ?',
+      [fecha_desparasitacion]
+    );
+
+    if (existe.length > 0) {
+      return res.status(400).json({ message: 'Ya hay una cita en ese horario' });
+    }
+
     const [result] = await pool.query(
       'INSERT INTO desparasitacion (nombre, email, telefono, mascota, tipo, mensaje, fecha_Des) VALUES (?, ?, ?, ?, ?, ?, ?)',
       [nombre, email, telefono, mascota, tipo, mensaje, fecha_desparasitacion]
@@ -27,6 +36,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: 'Error del servidor' });
   }
 });
+
 router.get('/', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM desparasitacion');

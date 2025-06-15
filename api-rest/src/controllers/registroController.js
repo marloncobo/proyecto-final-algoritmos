@@ -3,6 +3,16 @@ const pool = require('../config/database');
 exports.crearRegistro = async (req, res) => {
   const { nombre, email, telefono, mascota, edad, fecha_hora } = req.body;
   try {
+    // Validar que no exista un registro con la misma fecha y hora
+    const [existe] = await pool.query(
+      'SELECT * FROM citas WHERE fecha_cita = ?',
+      [fecha_hora]
+    );
+
+    if (existe.length > 0) {
+      return res.status(400).json({ message: 'Ya hay una cita en ese horario' });
+    }
+    
     const [result] = await pool.query(
       'INSERT INTO registros (nombre, email, telefono, mascota, edad, fecha_hora) VALUES (?, ?, ?, ?, ?, ?)',
       [nombre, email, telefono, mascota, edad, fecha_hora]

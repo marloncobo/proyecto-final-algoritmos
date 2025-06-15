@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuestionario de Vacunas</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+    }
+
+    td {
+      background-color: #fefefe;
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    @media screen and (max-width: 768px) {
+      table, tr, td, th {
+        display: block;
+        width: 100%;
+      }
+
+      td {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form action="http://localhost:3000/api/vacuna" method="post">
+    <h1>¿Qué vacunas tiene el perro?</h1>
+    <table>
+      <tr>
+        <th>Vacunas</th>
+        <th>Selecciona una opción (obligatorio para proteger a tu mascota)</th>
+      </tr>
+
+      <!-- Ejemplo de fila -->
+      <tr>
+        <td>1. Parvovirus (6 semanas)</td>
+        <td>
+          <label><input type="radio" name="parvovirus" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="parvovirus" value="No"> No</label><br>
+          <label><input type="radio" name="parvovirus" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <!-- Repite para las demás vacunas -->
+      <tr>
+        <td>2. Primera múltiple (6 - 8 semanas)</td>
+        <td>
+          <label><input type="radio" name="primera_multiple" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="primera_multiple" value="No"> No</label><br>
+          <label><input type="radio" name="primera_multiple" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>3. Segunda múltiple (10 - 12 semanas)</td>
+        <td>
+          <label><input type="radio" name="segunda_multiple" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="segunda_multiple" value="No"> No</label><br>
+          <label><input type="radio" name="segunda_multiple" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>4. Leptospira (12 semanas)</td>
+        <td>
+          <label><input type="radio" name="leptospira" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="leptospira" value="No"> No</label><br>
+          <label><input type="radio" name="leptospira" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>5. Tercera múltiple + Rabia (12 – 16 semanas)</td>
+        <td>
+          <label><input type="radio" name="tercera_multiple" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="tercera_multiple" value="No"> No</label><br>
+          <label><input type="radio" name="tercera_multiple" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>6. Bordetella (16 semanas)</td>
+        <td>
+          <label><input type="radio" name="bordetella_16" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="bordetella_16" value="No"> No</label><br>
+          <label><input type="radio" name="bordetella_16" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>7. Múltiple anual (DHPPL o similar)</td>
+        <td>
+          <label><input type="radio" name="dhppl" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="dhppl" value="No"> No</label><br>
+          <label><input type="radio" name="dhppl" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>8. Rabia (anual según país)</td>
+        <td>
+          <label><input type="radio" name="rabia_anual" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="rabia_anual" value="No"> No</label><br>
+          <label><input type="radio" name="rabia_anual" value="No se"> No sé</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>9. Bordetella (anual o semestral)</td>
+        <td>
+          <label><input type="radio" name="bordetella_anual" value="Sí" required> Sí</label><br>
+          <label><input type="radio" name="bordetella_anual" value="No"> No</label><br>
+          <label><input type="radio" name="bordetella_anual" value="No se"> No sé</label>
+        </td>
+      </tr>
+    </table>
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>

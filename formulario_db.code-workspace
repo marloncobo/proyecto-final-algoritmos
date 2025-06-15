@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../../../xampp/htdocs/formulario_db"
+		},
+		{
+			"path": "../Taller-typescript"
+		},
+		{
+			"path": "../Juego-typescript"
+		},
+		{
+			"path": "../proyecto-Angel"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Juego-typescript"
+	}
+}

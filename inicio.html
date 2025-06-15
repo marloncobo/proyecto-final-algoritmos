@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Veterinaria Los Casos</title>
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: #000;
+        }
+
+        .inicio {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('fondo-veterinaria.jpg'); /* Cambia este nombre por tu imagen real */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .inicio::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6); /* oscurecer para que el texto sea legible */
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .boton:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="inicio">
+        <div class="container">
+            <h1>Bienvenido a Veterinaria Los Casos</h1>
+            <p>
+                Nos dedicamos al cuidado integral de tus mascotas con amor, profesionalismo y experiencia.
+                Nuestro equipo está comprometido con la salud y bienestar de tus compañeros de vida.
+            </p>
+            <p>
+                Explora nuestros servicios, conoce a nuestro equipo, y no dudes en contactarnos para más información o para agendar una cita.
+            </p>
+            <a href="servicios.html" class="boton">Ver Servicios</a>
+        </div>
+    </section>
+</body>
+</html>

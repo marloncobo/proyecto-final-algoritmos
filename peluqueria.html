@@ -3,139 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Peluquería Canina - Veterinaria Los Casos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Formulario de Peluquería</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
- 
     body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: url("img/perro.jpeg") no-repeat center center fixed;
-    background-size: cover;
-    }
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fafc;
+  color: #333;
+}
 
-    header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
-  .container {
-      max-width: 600px;
-      background-color: rgba(255, 255, 255, 0.3); /* fondo blanco con 30% de opacidad */
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin: 50px auto;
-      color: #222;
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
-    }
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-    p.description {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-      color: #555;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    label {
-      font-weight: 600;
-    }
-    input, select, textarea {
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-family: inherit;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px;
-      font-weight: 600;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    footer {
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2aa198;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  height: 40px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.formulario {
+  background-color: white;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin: 1rem 0 0.3rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.opciones-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.opcion {
+  flex: 1 1 calc(50% - 10px);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.opcion:hover {
+  background-color: #eafbf2;
+}
+
+.opcion input[type="radio"] {
+  transform: scale(1.3);
+}
+
+.opcion img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.opcion span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 12px;
+  background-color: #2aa198;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218f86;
+}
+
+@media (max-width: 600px) {
+  .opciones-servicios {
+    flex-direction: column;
+  }
+
+  .opcion {
+    flex: 1 1 100%;
+  }
+}
+
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Veterinaria Los Casos</h1>
+  <header class="navbar">
+    <img src="img/ito.jpg" alt="Logo Veterinaria" class="logo">
     <nav>
-      <a href="proyectofinal_1.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="equipo.html">Equipo</a>
-      <a href="contacto.html">Contacto</a>
+      <ul class="menu">
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
     </nav>
   </header>
 
-  <div class="container">
-    <h2>Peluquería Canina</h2>
-    <p class="description">
-      Nuestro servicio de peluquería canina está diseñado para mantener a tu mascota limpia, feliz y saludable. Ofrecemos baños, cortes, cepillado, limpieza de oídos y corte de uñas.
-    </p>
+  <main>
+    <form id="formPeluqueria" action="http://localhost:3000/api/peluqueria" method="POST" class="formulario">
+      <h2>📋 Formulario de Registro</h2>
+      <p class="subtitulo">Agenda una cita para tu mascota</p>
 
-    <form action="http://localhost:3000/api/peluqueria" method="POST">
-      <label for="nombre">Nombre del dueño:</label>
-      <input type="text" id="nombre" name="nombre" required>
+      <label>👤 Nombre completo:</label>
+      <input type="text" name="nombre_cliente" placeholder="Ingresa tu nombre completo" required>
 
-      <label for="telefono">Teléfono de contacto:</label>
-      <input type="tel" id="telefono" name="telefono" required>
+      <label>📧 Correo electrónico:</label>
+      <input type="email" name="correo" placeholder="ejemplo@correo.com" required>
 
-      <label for="mascota">Nombre de la mascota:</label>
-      <input type="text" id="mascota" name="mascota" required>
+      <label>📱 Teléfono:</label>
+      <input type="tel" name="telefono" placeholder="1234567890" required>
 
-      <label for="raza">Raza de la mascota:</label>
-      <input type="text" id="raza" name="raza">
+      <label>🐶 Nombre de tu mascota:</label>
+      <input type="text" name="nombre_mascota" placeholder="Nombre de tu mascota" required>
 
-      <label for="servicio">Tipo de servicio:</label>
-      <select id="servicio" name="servicio">
-        <option value="baño">Baño</option>
-        <option value="corte">Corte de pelo</option>
-        <option value="completo">Baño + Corte</option>
-        <option value="uñas">Corte de uñas</option>
-      </select>
+      <label>🎂 Edad en años:</label>
+      <input type="number" name="edad_mascota" placeholder="Edad en años" min="0">
 
-      <label for="fecha">Fecha de la cita:</label>
-      <input type="datetime-local" id="fecha" name="fecha" required>
+      <label>📅 Fecha de la cita:</label>
+      <input type="datetime-local" name="fecha_cita" placeholder="Selecciona fecha y hora" required>
 
-      <label for="comentarios">Comentarios adicionales:</label>
-      <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+      <h3>💇‍♂️ Selecciona un servicio</h3>
+      <div class="opciones-servicios">
+        <label class="opcion">
+          <input type="radio" name="servicios_seleccionados" value="Baño y Corte" required>
+          <img src="img/baño.jpg" alt="Baño y corte">
+          <span>Baño y Corte</span>
+        </label>
 
-      <button type="submit">Solicitar cita</button>
+        <label class="opcion">
+          <input type="radio" name="servicios_seleccionados" value="Corte de Uñas">
+          <img src="img/uñas.jpg" alt="Corte de uñas">
+          <span>Corte de Uñas</span>
+        </label>
+
+        <label class="opcion">
+          <input type="radio" name="servicios_seleccionados" value="Limpieza de Oídos">
+          <img src="img/oido.jpg" alt="Limpieza de oídos">
+          <span>Limpieza de Oídos</span>
+        </label>
+
+        <label class="opcion">
+          <input type="radio" name="servicios_seleccionados" value="Perfume y moñito">
+          <img src="img/estetica.jpg" alt="Perfume y moñito">
+          <span>Perfume y moñito</span>
+        </label>
+      </div>
+
+      <button type="submit">Solicitar Servicio</button>
     </form>
-  </div>
-
-  <footer>
-    © 2025 Veterinaria Los Casos. Todos los derechos reservados.
-  </footer>
+  </main>
 
 </body>
 </html>

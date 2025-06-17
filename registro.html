@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Registro - Veterinaria Los Casos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #2c9c94;
+      --amarillo: #f1c40f;
+      --grisClaro: #f6f8fa;
+      --texto: #333;
+      --sombra: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--grisClaro);
+      color: var(--texto);
+    }
+
+    header {
+      background-color: var(--verde);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffe082;
+    }
+
+    .registro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+      padding: 2rem;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 25px var(--sombra);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      color: var(--verde);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fdfdfd;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--verde);
+      box-shadow: 0 0 5px var(--verde);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--amarillo);
+      color: black;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #e0b70f;
+    }
+
+    #mensaje {
+      margin-top: 1rem;
+      text-align: center;
+      color: green;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.jpg" alt="Logo Veterinaria">
+    <nav>
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="registro">
+    <div class="container">
+      <h2>📋 Formulario de Registro</h2>
+      <p class="subtitle">Agenda una cita para tu mascota</p>
+      
+      <form id="formulario-registro">
+        <div class="form-group">
+          <label for="nombre">👤 Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre completo" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">📧 Correo electrónico:</label>
+          <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">📱 Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" required placeholder="1234567890" />
+        </div>
+
+        <div class="form-group">
+          <label for="mascota">🐕 Nombre de tu mascota:</label>
+          <input type="text" id="mascota" name="mascota" required placeholder="Nombre de tu mascota" />
+        </div>
+
+        <div class="form-group">
+          <label for="edad">🎂 Edad de la mascota (años):</label>
+          <input type="number" id="edad" name="edad" min="0" max="50" required placeholder="Edad en años" />
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">📅 Fecha y hora de la cita:</label>
+          <input type="datetime-local" id="fecha" name="fecha_hora" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Registrarse</button>
+      </form>
+      
+      <div id="mensaje"></div>
+    </div>
+  </section>
+
+  <script src="../js/registro.js"></script>
+</body>
+</html>

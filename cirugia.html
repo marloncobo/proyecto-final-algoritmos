@@ -1,35 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formulario Cirugía</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    video.fondo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.5);
+    }
+
+    header {
+      background-color: #2c9c94;
+      color: white;
+      padding: 10px 20px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 100px;
     }
 
     form {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.25);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       width: 100%;
       max-width: 500px;
+      color: #fff;
+      position: relative;
+      z-index: 2;
     }
 
     h3 {
       margin-top: 0;
       margin-bottom: 20px;
       font-size: 24px;
-      color: #333;
+      text-align: center;
     }
 
     label {
@@ -45,22 +107,22 @@
     textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 8px;
-      box-sizing: border-box;
       font-size: 14px;
-      resize: vertical;
+      margin-bottom: 10px;
     }
 
     textarea {
       height: 80px;
+      resize: vertical;
     }
 
     button {
       margin-top: 20px;
       width: 100%;
       padding: 12px;
-      background-color: #007BFF;
+      background-color: #2c9c94;
       color: white;
       border: none;
       border-radius: 8px;
@@ -70,52 +132,75 @@
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #019e2e;
     }
   </style>
 </head>
 <body>
-  <form action="http://localhost:3000/api/cirugia" method="post">
-    <h3>Información de la Cirugía</h3>
 
-    <label for="tipo-cirugia">Tipo de cirugía:</label>
-    <select id="tipo-cirugia" name="tipo_cirugia" required>
-      <option value="">--Selecciona una cirugía--</option>
-      <option value="esterilizacion">Esterilización / Castración</option>
-      <option value="tumores">Extracción de tumores</option>
-      <option value="dental">Cirugía dental</option>
-      <option value="cesarea">Cesárea</option>
-      <option value="fractura">Reparación de fracturas</option>
-      <option value="hernia">Corrección de hernias</option>
-      <option value="amputacion">Amputación</option>
-      <option value="ocular">Cirugía ocular</option>
-      <option value="gastrointestinal">Cirugía gastrointestinal</option>
-      <option value="vejiga">Cirugía de vejiga</option>
-    </select>
+  <!-- 🎥 Video de fondo -->
+  <video class="fondo" autoplay muted loop>
+    <source src="video/gatos.mp4" type="video/mp4">
+    Tu navegador no soporta el video HTML5.
+  </video>
 
-    <label for="nombre-mascota">Nombre de la mascota:</label>
-    <input type="text" id="nombre-mascota" name="nombre_mascota" required>
+  <!-- 🧭 Navegación -->
+  <header>
+    <img src="img/logo.jpg" alt="Logo Veterinaria">
+    <nav>
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="registro.html" class="active">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <label for="edad">Edad:</label>
-    <input type="number" id="edad" name="edad_mascota" min="0" required>
+  <!-- 📋 Formulario -->
+  <main>
+    <form action="http://localhost:3000/api/cirugia" method="post">
+      <h3>Información de la Cirugía</h3>
 
-    <label for="especie">Especie:</label>
-    <select id="especie" name="especie">
-      <option value="perro">Perro</option>
-      <option value="gato">Gato</option>
-      <option value="otro">Otro</option>
-    </select>
+      <label for="tipo-cirugia">Tipo de cirugía:</label>
+      <select id="tipo-cirugia" name="tipo_cirugia" required>
+        <option value="">--Selecciona una cirugía--</option>
+        <option value="esterilizacion">Esterilización / Castración</option>
+        <option value="tumores">Extracción de tumores</option>
+        <option value="dental">Cirugía dental</option>
+        <option value="cesarea">Cesárea</option>
+        <option value="fractura">Reparación de fracturas</option>
+        <option value="hernia">Corrección de hernias</option>
+        <option value="amputacion">Amputación</option>
+        <option value="ocular">Cirugía ocular</option>
+        <option value="gastrointestinal">Cirugía gastrointestinal</option>
+        <option value="vejiga">Cirugía de vejiga</option>
+      </select>
 
-    <label for="nombre-especie">Si seleccionaste "Otro", ¿qué tipo de especie es?</label>
-    <input type="text" id="nombre-especie" name="nombre_especie" placeholder="Ej. conejo, hurón">
+      <label for="nombre-mascota">Nombre de la mascota:</label>
+      <input type="text" id="nombre-mascota" name="nombre_mascota" required>
 
-    <label for="detalle">Detalles adicionales:</label>
-    <textarea id="detalle" name="detalle"></textarea>
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad_mascota" min="0" required>
 
-    <label for="fecha">Fecha de la cirugía:</label>
-    <input type="datetime-local" id="fecha" name="fecha_cirugia" required>
+      <label for="especie">Especie:</label>
+      <select id="especie" name="especie">
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+        <option value="otro">Otro</option>
+      </select>
 
-    <button type="submit">Enviar solicitud</button>
-  </form>
+      <label for="nombre-especie">Si seleccionaste "Otro", ¿qué tipo de especie es?</label>
+      <input type="text" id="nombre-especie" name="nombre_especie" placeholder="Ej. conejo, hurón">
+
+      <label for="detalle">Detalles adicionales:</label>
+      <textarea id="detalle" name="detalle"></textarea>
+
+      <button type="submit">Enviar solicitud</button>
+    </form>
+  </main>
+
+  <script src="/js/cirujia.js"></script>
 </body>
 </html>

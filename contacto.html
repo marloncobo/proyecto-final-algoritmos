@@ -9,8 +9,8 @@
     :root {
       --verde-claro: #e0f7fa;
       --verde-pastel: #f1f8e9;
-      --verde: #4CAF50;
-      --verde-oscuro: #388E3C;
+      --verde: #01879e;
+      --verde-oscuro: #01879e;
       --blanco: #ffffff;
       --gris: #ccc;
       --sombra: rgba(0, 0, 0, 0.1);
@@ -144,11 +144,11 @@
     <img src="img/logo.jpg" alt="Logo Veterinaria">
     <nav>
       <ul>
-        <li><a href="proyectofinal_1.html">Inicio</a></li>
+        <li><a href="inicio.html">Inicio</a></li>
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="equipo.html">Equipo</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="resgistro.html">Registro</a></li>
+        <li><a href="registro.html">Registro</a></li>
       </ul>
     </nav>
   </header>
@@ -156,7 +156,7 @@
   <section class="contacto">
     <div class="container">
       <h2>Contáctanos</h2>
-      <form action="http://localhost:3000/api/contacto" method="post">
+      <form action="procesar_contacto.php" method="post">
 
         <label for="nombre">Nombre completo:</label>
         <input type="text" id="nombre" name="nombre" required placeholder="Ej: Ana Pérez" aria-label="Nombre completo">
@@ -174,6 +174,7 @@
       </form>
     </div>
   </section>
+  <script src="/js/contacto.js"></script>
 
 </body>
 </html>

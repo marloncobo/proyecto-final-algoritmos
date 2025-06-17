@@ -7,8 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: hsl(122, 39%, 49%);
-      --primary-dark: #388E3C;
+      --primary: #2a9d8f;
+      --primary-dark: #264653;
+      --accent: #e9c46a;
       --bg: #f0f2f5;
       --card-bg: #ffffff;
       --text: #333;
@@ -59,7 +60,7 @@
     }
 
     .navbar ul li a:hover {
-      color: #dfffdc;
+      color: var(--accent);
     }
 
     main {
@@ -70,7 +71,7 @@
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 40px;
-      color: var(--text);
+      color: var(--primary-dark);
     }
 
     .services-grid {
@@ -122,27 +123,23 @@
 
     .card button {
       margin-top: 15px;
-      background-color: var(--primary);
+      background-color: var(--accent);
       border: none;
       padding: 10px 25px;
       border-radius: 6px;
       font-weight: 600;
-      color: white;
+      color: var(--primary-dark);
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
     .card button:hover {
       background-color: var(--primary-dark);
+      color: white;
     }
 
-    .card button.inactivo {
-      background-color: #388E3C;
-      
-    }
-
-    .consulta { background-image: url('img/consulta.jpg'); background-size: cover; background-position: center; }
-    .vacunacion { background-image: url('img/vacunacion-canina_782430-28.avif'); background-size: cover; background-position: center; }
+    .consulta { background-image: url('img/ojos.jpg'); background-size: cover; background-position: center; }
+    .vacunacion { background-image: url('img/vacunacion.jpg'); background-size: cover; background-position: center; }
     .cirugia { background-image: url('img/cirugia.jpeg'); background-size: cover; background-position: center; }
     .desparasitacion { background-image: url('img/fotodes.jpeg'); background-size: cover; background-position: center; }
     .peluqueria { background-image: url('img/peluqueria.jpeg'); background-size: cover; background-position: center; }
@@ -173,16 +170,15 @@
   </style>
 </head>
 <body>
-
   <header>
     <div class="navbar">
       <img src="img/logo.jpg" alt="Logo Veterinaria">
       <ul>
-        <li><a href="proyectofinal_1.html">Inicio</a></li>
+        <li><a href="inicio.html">Inicio</a></li>
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="equipo.html">Equipo</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="resgistro.html">Registro</a></li>
+        <li><a href="registro.html">Registro</a></li>
       </ul>
     </div>
   </header>
@@ -194,7 +190,7 @@
         <div class="card-content">
           <h3>Consulta General</h3>
           <p>Exámenes clínicos completos para evaluar la salud de tu mascota.</p>
-          <button onclick="location.href='resgistro.html'">Solicitar</button>
+          <button onclick="location.href='consulta.html'">Solicitar</button>
         </div>
       </div>
 
@@ -235,6 +231,5 @@
   <footer>
     <p>&copy; 2025 Veterinaria Los Casos. Todos los derechos reservados.</p>
   </footer>
-
 </body>
 </html>

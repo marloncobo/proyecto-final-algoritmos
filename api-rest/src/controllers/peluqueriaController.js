@@ -1,22 +1,27 @@
 const pool = require('../config/database'); // conexión a la base de datos
 
 exports.registrarPeluqueria = async (req, res) => {
-  const { nombre, telefono, mascota, raza, servicio, fecha, comentarios } = req.body;
+  const { nombre_cliente, telefono, nombre_mascota, servicios_seleccionados, fecha_cita } = req.body;
 
   try {
     // Validar que la fecha no esté ocupada
     const [existe] = await pool.query(
       'SELECT * FROM citas WHERE fecha_cita = ?',
-      [fecha]
+      [fecha_cita]
     );
 
     if (existe.length > 0) {
       return res.status(400).json({ message: 'Ya hay una cita en ese horario' });
     }
+    // Guardar la cita de peluquería
+    const [cita] = await pool.query(
+      'INSERT INTO citas (nombre_cliente, nombre_mascota, servicio, fecha_cita, detalle) VALUES (?, ?, ?, ?, ?)',
+      [nombre_cliente, nombre_mascota, 'peluqueria', fecha_cita, '']
+    );
 
     const [result] = await pool.query(
-      'INSERT INTO peluqueria (nombre, telefono, mascota, raza, servicio, fecha, comentarios) VALUES (?, ?, ?, ?, ?, ?, ?)',
-      [nombre, telefono, mascota, raza, servicio, fecha, comentarios]
+      'INSERT INTO servicios_peluqueria (nombre_cliente, telefono, nombre_mascota, servicios_seleccionados, fecha_cita) VALUES (?, ?, ?, ?, ?)',
+      [nombre_cliente, telefono, nombre_mascota, servicios_seleccionados, fecha_cita]
     );
     res.status(201).json({ message: 'Cita de peluquería registrada', id: result.insertId });
   } catch (error) {

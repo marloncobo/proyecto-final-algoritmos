@@ -138,13 +138,13 @@
 </head>
 <body>
 
-  <!-- 🎥 Video de fondo -->
+  <!-- Video de fondo -->
   <video class="fondo" autoplay muted loop>
     <source src="video/gatos.mp4" type="video/mp4">
     Tu navegador no soporta el video HTML5.
   </video>
 
-  <!-- 🧭 Navegación -->
+  <!-- Navegación -->
   <header>
     <img src="img/logo.jpg" alt="Logo Veterinaria">
     <nav>
@@ -178,6 +178,9 @@
         <option value="vejiga">Cirugía de vejiga</option>
       </select>
 
+      <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre_cliente" required />
+
       <label for="nombre-mascota">Nombre de la mascota:</label>
       <input type="text" id="nombre-mascota" name="nombre_mascota" required>
 
@@ -197,10 +200,12 @@
       <label for="detalle">Detalles adicionales:</label>
       <textarea id="detalle" name="detalle"></textarea>
 
+      <label>📅 Fecha de la cita:</label>
+      <input type="datetime-local" name="fecha_cirugia" placeholder="Selecciona fecha y hora" required>
+
       <button type="submit">Enviar solicitud</button>
     </form>
   </main>
 
-  <script src="/js/cirujia.js"></script>
 </body>
 </html>

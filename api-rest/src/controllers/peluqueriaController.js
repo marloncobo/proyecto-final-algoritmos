@@ -32,7 +32,7 @@ exports.registrarPeluqueria = async (req, res) => {
 
 exports.obtenerCitas = async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT * FROM peluqueria');
+    const [rows] = await pool.query('SELECT * FROM servicios_peluqueria');
     res.status(200).json(rows);
   } catch (error) {
     console.error('Error al obtener citas de peluquería:', error);
